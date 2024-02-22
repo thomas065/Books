@@ -33,7 +33,9 @@ const books = [
 ];
 
 const Book = props => {
-    const { author, title, img, description, href } = props;
+    const { author, title, img, description, href, getBook, id } = props;
+    // console.log(props);
+
     return (
         <div className='col'>
             <div
@@ -60,40 +62,23 @@ const Book = props => {
                 >
                     More...
                 </a> */}
-            </div>
-        </div>
-    );
-};
-
-const Modal = () => {
-    return (
-        <div>
-            <form>
-                <h2>Typical Form</h2>
-                <input
-                    type='text'
-                    name='example'
-                    style={{ margin: '1rem 0' }}
-                    onChange={(e) => console.log(e.target.value)}
-                />
-                <button type='submit' onClick={() => console.log('form submitted')}>submit form</button>
-            </form>
-            <div>
-                <button onClick={() => alert('anonymous call back click')}>
-                    click me
-                </button>
+                <button onClick={() => getBook(id)}>Click</button>
             </div>
         </div>
     );
 };
 
 function BookList() {
+    const getBook = id => {
+        const book = books.find(book => book.id === id);
+        alert(`Book Title: ${book.title}`);
+    };
+
     return (
         <div className='row row-cols-1 row-cols-sm-2 row-cols-lg-2 row-cols-xl-3 g-5 justify-content-evenly'>
-            <Modal />
             {books.map(book => {
                 const { id } = book;
-                return <Book key={id} {...book} />;
+                return <Book key={id} {...book} getBook={getBook} />;
             })}
         </div>
     );
