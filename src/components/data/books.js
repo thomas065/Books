@@ -1,7 +1,4 @@
-import React from 'react';
-import './BookList.css';
-
-const books = [
+export const books = [
     {
         id: 1,
         author: 'James Clavel',
@@ -31,57 +28,3 @@ const books = [
         href: 'https://www.amazon.com/Secrets-Prime-Ones-Sentinels-Book/dp/B0CPTDXYH6/ref=sr_1_22?crid=1V062IQS5C9S5&dib=eyJ2IjoiMSJ9.BjZqeOTWo5kgngMnElSv5qfLoNfVDBMS3nCYfzJ-WvbppF1Owx3P2vYdNzv-5Whb783FFT9o28rqMZLKawAC1KkPiK1PXp7w4a7tDxwvrYFQZUnRlJJKIoJAaew0tphc7Ockkk3ekIniY1dzH4HxJDpneDTE8wHEWJVHH55LKB9a0RQRn4SCNr2B7uaosq4w.B403TQNFyATTT_oyEMXFHXIklRjliIDq6S6C3MuH0JQ&dib_tag=se&keywords=Books&qid=1708560855&s=audible&sprefix=books%2Caudible%2C93&sr=1-22-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1',
     },
 ];
-
-const Book = props => {
-    const { author, title, img, description, href, getBook, id } = props;
-    // console.log(props);
-
-    return (
-        <div className='col'>
-            <div
-                className='card h-100 border border-3 border-dark-subtle rounded-5 bg-warning-subtle p-3'
-                style={{ width: 400 }}
-            >
-                <img src={img} className='card-img-top rounded-4' alt={title} />
-                <div className='card-body'>
-                    <h4 className='card-title'>
-                        <u>{title}</u>
-                    </h4>
-                    <p className='lead'>
-                        <b>Author:</b> {author}
-                    </p>
-                    <p className='card-text'>
-                        <em>{description}</em>
-                    </p>
-                </div>
-                {/* <a
-                    href={href}
-                    target='_blank'
-                    type='button'
-                    className='btn btn-success'
-                >
-                    More...
-                </a> */}
-                <button onClick={() => getBook(id)}>Click</button>
-            </div>
-        </div>
-    );
-};
-
-function BookList() {
-    const getBook = id => {
-        const book = books.find(book => book.id === id);
-        alert(`Book Title: ${book.title}`);
-    };
-
-    return (
-        <div className='row row-cols-1 row-cols-sm-2 row-cols-lg-2 row-cols-xl-3 g-5 justify-content-evenly'>
-            {books.map(book => {
-                const { id } = book;
-                return <Book key={id} {...book} getBook={getBook} />;
-            })}
-        </div>
-    );
-}
-
-export default BookList;
