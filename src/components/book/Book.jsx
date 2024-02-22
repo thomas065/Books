@@ -1,6 +1,8 @@
+import './book.css'
+
 const Book = (props) => {
-    const { author, title, img, description, href } = props;
-    // console.log(props);
+    const { author, title, img, description, href, num } = props;
+    // console.log(num);
 
     return (
         <div className='col'>
@@ -16,6 +18,7 @@ const Book = (props) => {
                     <p className='lead'>
                         <b>Author:</b> {author}
                     </p>
+                    <span className="book-flag">{`# ${num + 1}`}</span>
                     <p className='card-text'>
                         <em>{description}</em>
                     </p>

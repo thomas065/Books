@@ -1,0 +1,11 @@
+.book-flag{
+    position: absolute;
+    top: 0.005rem;
+    left: 0.005rem;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border-top-left-radius: 1.75rem;
+    border-bottom-right-radius: 1.75rem;
+    background: #c35600;
+    color: #fff;
+}
