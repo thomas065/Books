@@ -66,10 +66,17 @@ const Book = props => {
 };
 
 const Modal = () => {
-    const handleFormInput = () => {
+    const handleFormSubmit = e => {
+        e.preventDefault();
+        console.log('handle form Submit');
+    };
+    const handleFormInput = e => {
+        console.log(e.target.name);
+        console.log(e.target.value);
         console.log('handle form input');
     };
     const handleButtonClick = () => {
+        alert('handle button click');
         // <button
         //     type='button'
         //     className='btn btn-primary'
@@ -78,7 +85,6 @@ const Modal = () => {
         // >
         //     Click Me
         // </button>;
-        alert('handle button click');
     };
     return (
         <>
@@ -123,7 +129,7 @@ const Modal = () => {
                 </div>
             </div> */}
             <div>
-                <form>
+                <form onSubmit={handleFormSubmit}>
                     <h2>Typical Form</h2>
                     <input
                         type='text'
